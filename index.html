@@ -17,50 +17,66 @@
             margin: 0;
         }
 
-        /* Login Container */
+        /* Enlarged Login Container */
         .login-container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px; /* Increased padding */
+            border-radius: 15px; /* Softer edges */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
             backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 450px; /* Increased max width */
         }
 
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 24px; /* Bigger text */
         }
 
         /* Input Field */
+        .input-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         input {
             width: 100%;
-            padding: 12px;
+            padding: 15px; /* Bigger padding */
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-bottom: 15px;
+            border-radius: 8px; /* Rounded edges */
+            font-size: 18px; /* Bigger font */
             outline: none;
             text-align: center;
             background: rgba(255, 255, 255, 0.2);
             color: white;
+            box-sizing: border-box;
         }
 
         /* Placeholder Style */
         input::placeholder {
             color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
         }
 
         /* Buttons */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
         button {
             width: 100%;
-            padding: 12px;
+            padding: 15px; /* Bigger buttons */
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 10px;
         }
 
         .login-btn {
@@ -84,9 +100,22 @@
         /* Error Message */
         #error {
             color: #ff4b5c;
-            font-size: 14px;
-            margin-top: 10px;
+            font-size: 16px; /* Bigger text */
+            margin-top: 12px;
             display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 35px;
+            }
+
+            input, button {
+                font-size: 16px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -94,9 +123,13 @@
 
     <div class="login-container">
         <h2>Enter Your Secure Key</h2>
-        <input type="password" id="keyInput" placeholder="Enter Key">
-        <button class="login-btn" onclick="checkKey()">Login</button>
-        <button class="get-key-btn" onclick="getKey()">Get Key</button>
+        <div class="input-box">
+            <input type="password" id="keyInput" placeholder="Enter Key">
+        </div>
+        <div class="btn-container">
+            <button class="login-btn" onclick="checkKey()">Login</button>
+            <button class="get-key-btn" onclick="getKey()">Get Key</button>
+        </div>
         <p id="error">Invalid Key! Try again.</p>
     </div>
 
@@ -107,7 +140,6 @@
             const errorText = document.getElementById("error");
 
             if (userKey === correctKey) {
-            
                 window.location.href = "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-225.09,10.37,402"; // Redirect on success
             } else {
                 errorText.style.display = "block"; // Show error message
@@ -123,4 +155,4 @@
     </script>
 
 </body>
-</html>
+                </html>
